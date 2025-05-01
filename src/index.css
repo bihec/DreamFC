@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-white text-gray-800 font-poppins;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-full font-medium transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-pastel-teal text-white hover:bg-pastel-teal-dark 
+           focus:ring-pastel-teal-light;
+  }
+  
+  .btn-secondary {
+    @apply bg-pastel-orange text-white hover:bg-pastel-orange-dark 
+           focus:ring-pastel-orange-light;
+  }
+  
+  .btn-success {
+    @apply bg-pistachio text-white hover:bg-pistachio-dark 
+           focus:ring-pistachio-light;
+  }
+  
+  .btn-danger {
+    @apply bg-fiery-red text-white hover:bg-fiery-red-dark 
+           focus:ring-fiery-red-light;
+  }
+  
+  .card {
+    @apply bg-card-bg rounded-2xl shadow-card p-6 transition-all duration-300 
+           hover:shadow-card-hover;
+  }
+  
+  .flashcard {
+    @apply w-full max-w-md h-64 md:h-80 bg-gradient-to-br from-white to-card-bg 
+           rounded-2xl shadow-card mx-auto my-4 perspective-1000 transition-all duration-300
+           hover:shadow-card-hover relative overflow-hidden;
+  }
+  
+  .flashcard-front, .flashcard-back {
+    @apply absolute inset-0 backface-hidden rounded-2xl p-6 flex flex-col items-center justify-center;
+  }
+  
+  .flashcard-back {
+    @apply bg-gradient-to-tr from-pastel-teal-light to-white transform-gpu rotate-y-180;
+  }
+  
+  .flashcard.flipped .flashcard-front {
+    @apply transform-gpu rotate-y-180;
+  }
+  
+  .flashcard.flipped .flashcard-back {
+    @apply transform-gpu rotate-y-0;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none 
+           focus:ring-2 focus:ring-pastel-teal-light focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+  
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+}
